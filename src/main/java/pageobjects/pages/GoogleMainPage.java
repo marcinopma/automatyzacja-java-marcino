@@ -10,8 +10,6 @@ public class GoogleMainPage extends GooglePage{
 
     public GoogleMainPage(WebDriver driver){
         super(driver);
-
-
     }
 
     public void open(){

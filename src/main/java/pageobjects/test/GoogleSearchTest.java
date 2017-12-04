@@ -14,18 +14,28 @@ public class GoogleSearchTest extends BaseTest{
            // GooglePage gP = new GooglePage(driver);
             // Arrange - przygotowanie testu
             //-- otworzyć główną stronę googla jako obiekt
-            GoogleMainPage mainPage = new GoogleMainPage(driver);
-            mainPage.open();
 
-
-            //act - działanie
-            GoogleResultPage resultPage = mainPage.searchFor(CodeSprinters.PAGE_NAME);
+            GoogleResultPage resultPage = searchOnGoogle(CodeSprinters.PAGE_NAME);
 
 
 
 
             // assert
-            Assert.assertTrue("CS page found", resultPage.containsResultWithURL(CodeSprinters.PAGE_URL) > 0);
+            Assert.assertTrue("'" + CodeSprinters.PAGE_NAME + "' page found", resultPage.containsResultWithURL(CodeSprinters.PAGE_URL) > 0);
+        }
+
+    private GoogleResultPage searchOnGoogle(String pageName) {
+        GoogleMainPage mainPage = new GoogleMainPage(driver);
+        mainPage.open();
+        return mainPage.searchFor(pageName);
+    }
+
+    @Test
+        public void verifyGoogleShowsNoCodeSprinterOnSecondPage(){
+            GoogleResultPage resultPage = searchOnGoogle(CodeSprinters.PAGE_NAME);
+            GoogleResultPage secondResultPage = resultPage.displayNexPage();
+            Assert.assertTrue("'Page with URL starting with" + CodeSprinters.PAGE_NAME + "' page not found",
+                    secondResultPage.countResultWithURLMatching(CodeSprinters.PAGE_URL) == 0);
         }
 
 }
