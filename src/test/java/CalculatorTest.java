@@ -67,6 +67,15 @@ public class CalculatorTest {
 
     }
 
+    @Test
+    public void canDivideZerobyZero() throws Exception {
+        double a=0;
+        double b=0;
+        Assert.assertTrue("0/0= positive infinity" , Calculator.divide(a,b)== 0.0);
+
+
+    }
+
 
     @Test
     public void multiply() throws Exception {

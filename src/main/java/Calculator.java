@@ -21,7 +21,13 @@ public class Calculator {
     }
 
     public static double divide(double a, double b){
-        return a/b;
+        if(a == 0 && b == 0){
+            return 0.0;
+        }else{
+            return a/b;
+        }
+
+
     }
 
     public static double multiply(double a, double b){
