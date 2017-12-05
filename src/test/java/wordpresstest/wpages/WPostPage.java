@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import wordpresstest.wdomain.RandomComment;
 
-import java.util.List;
-import java.util.stream.Stream;
-
-
 public class WPostPage extends WPage {
     public static final By ADDED_COMMENT_LOCATOR = By.cssSelector(".comment-content > p");
     private static final By COMMENT_LOCATOR = By.id("comment");
