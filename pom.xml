@@ -30,6 +30,15 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>2.20.1</version>
+        <configuration>
+          <parallel>all</parallel>
+          <threadCount>2</threadCount>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

@@ -36,6 +36,7 @@ public class WTest extends WBaseTest{
     }
 /*
     @Test
+   // ignoruje żeby się test nie wykonywał @ignore
     public void enterComment(){
         WMainPage mainPage = new WMainPage(driver);
         mainPage.open();
