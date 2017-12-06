@@ -3,6 +3,8 @@ package wordpresstest.wpages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import wordpresstest.wdomain.RandomComment;
 
 public class WPostPage extends WPage {
@@ -21,6 +23,9 @@ public class WPostPage extends WPage {
     }
 
     public WPostPage enterComment(String content, String email, String name, String webPage){
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(COMMENT_LOCATOR));
+
         WebElement enterPost = driver.findElement(COMMENT_LOCATOR);
         enterPost.click();
         enterPost.clear();
